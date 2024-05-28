@@ -1,4 +1,5 @@
 let sidebarWidth = 250;
+let sidebarOpen = false;
 
 function openNav() {
   document.getElementById("mySidebar").style.width = sidebarWidth + "px";
@@ -9,8 +10,6 @@ function closeNav() {
   document.getElementById("mySidebar").style.width = "0";
   document.getElementById("main2").style.marginRight = "0";
 }
-
-let sidebarOpen = false;
 
 function toggleNav() {
   if (sidebarOpen) {
@@ -24,9 +23,12 @@ function toggleNav() {
 
 document.querySelector('.openbtn').addEventListener('click', toggleNav);
 
-let buttons = document.querySelectorAll('.sidebar a');
 
-buttons.forEach(button => {
-  button.addEventListener('click', closeNav);
+let sidebarLinks = ['senestside.html', '#', '#', '#', 'chat.html', 'login.html'];
+
+
+sidebarLinks.forEach(link => {
+  document.querySelector(`[href="${link}"]`).addEventListener('click', closeNav);
 });
+
 
